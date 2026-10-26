@@ -1,0 +1,49 @@
+BEEKIRI PROPRIETARY SOFTWARE LICENSE
+Copyright (c) 2026 996agency. All rights reserved.
+
+IMPORTANT — THIS IS NOT AN OPEN-SOURCE LICENSE.
+
+1. Ownership
+   Beekiri CMS, including but not limited to its source code, install packages
+   (ZIP archives), binaries, documentation, branding, and related materials
+   (the "Software"), is the exclusive property of 996agency ("Licensor").
+
+2. No grant of rights by download
+   Downloading, cloning, or receiving the Software (including public install
+   ZIPs) does NOT grant you ownership or any right to copy, modify, reverse
+   engineer, redistribute, sublicense, sell, rent, lease, or create derivative
+   works of the Software, except as expressly authorized in a separate written
+   agreement with Licensor.
+
+3. Authorized use
+   You may use the Software only if you (or your organization) have a valid
+   license or client engagement from 996agency, and only for the sites and
+   purposes covered by that agreement. Client site content, media, and
+   configuration (.env, database data) remain the client's property.
+
+4. Prohibited without written permission
+   Without prior written permission from 996agency, you must NOT:
+   - modify, fork, or create derivative works of the Software;
+   - redistribute, republish, or rebrand the Software or install ZIP;
+   - remove or alter copyright, license, or proprietary notices;
+   - use the Software to build a competing CMS product or white-label offering;
+   - share the Software with third parties outside your licensed engagement.
+
+5. Enforcement
+   Unauthorized use, modification, or redistribution may result in civil and/or
+   criminal liability under applicable intellectual property and contract law.
+   Licensor reserves all rights not expressly granted.
+
+6. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL LICENSOR BE
+   LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM USE OF THE
+   SOFTWARE.
+
+7. Contact
+   Licensing and permissions: 996agency
+   https://github.com/996agency
+
+By using, installing, or retaining a copy of the Software, you acknowledge
+that you have read this license and agree to be bound by its terms.
