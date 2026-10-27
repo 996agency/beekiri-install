@@ -8,7 +8,7 @@ Public **install ZIP** releases for Beekiri CMS under **996agency**.
 
 ## Download
 
-**Latest ZIP (v0.1.8):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
+**Latest ZIP (v0.1.9):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
 
 **Releases:** https://github.com/996agency/beekiri-install/releases
 
