@@ -4,11 +4,11 @@ Public **install ZIP** releases for Beekiri CMS under **996agency**.
 
 ## License — proprietary
 
-**Not open source.** Copyright © 2026 996agency. All rights reserved. See [`LICENSE`](./LICENSE).
+**Not open source.** Copyright © 2026 996agency. All rights reserved. See LICENSE.
 
 ## Download
 
-**Latest ZIP (v0.1.7):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
+**Latest ZIP (v0.1.8):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
 
 **Releases:** https://github.com/996agency/beekiri-install/releases
 
