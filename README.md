@@ -8,10 +8,12 @@ Public **install ZIP** releases for Beekiri CMS under **996agency**.
 
 ## Download
 
-**Latest ZIP (v0.1.15):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
+**Latest ZIP (v1.0.0):** https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip
 
 **Releases:** https://github.com/996agency/beekiri-install/releases
 
-1. Unzip → read `LICENSE` and `START_HERE.txt`
-2. Configure `.env`, migrate, start apps
-3. Open admin URL → **/install** once (new sites only)
+1. Unzip, then read `LICENSE` and `START_HERE.txt`
+2. Run `npm install` and `npm start`
+3. Open the address it prints and complete the setup wizard
+
+Existing sites update from **Settings → Beekiri Core** in the admin.
