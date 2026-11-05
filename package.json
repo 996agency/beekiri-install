@@ -1,6 +1,6 @@
 {
   "name": "create-beekiri",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create a new Beekiri CMS site: downloads the latest release, installs it and opens the setup wizard.",
   "type": "module",
   "bin": {
