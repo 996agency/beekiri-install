@@ -1,49 +1,133 @@
-BEEKIRI PROPRIETARY SOFTWARE LICENSE
+BEEKIRI LICENSE
+Version 1.0 — November 2026
+
 Copyright (c) 2026 996agency. All rights reserved.
 
-IMPORTANT — THIS IS NOT AN OPEN-SOURCE LICENSE.
+Beekiri CMS ("Beekiri" or "the Software") is free to use. This license explains
+what you may do with it, and the few things you may not do. It is written in
+plain language on purpose. "You" means the person or organisation using the
+Software; "996agency" is the owner of the Software.
 
-1. Ownership
-   Beekiri CMS, including but not limited to its source code, install packages
-   (ZIP archives), binaries, documentation, branding, and related materials
-   (the "Software"), is the exclusive property of 996agency ("Licensor").
 
-2. No grant of rights by download
-   Downloading, cloning, or receiving the Software (including public install
-   ZIPs) does NOT grant you ownership or any right to copy, modify, reverse
-   engineer, redistribute, sublicense, sell, rent, lease, or create derivative
-   works of the Software, except as expressly authorized in a separate written
-   agreement with Licensor.
+1. FREE TO USE — FOR EVERYONE, FOREVER
 
-3. Authorized use
-   You may use the Software only if you (or your organization) have a valid
-   license or client engagement from 996agency, and only for the sites and
-   purposes covered by that agreement. Client site content, media, and
-   configuration (.env, database data) remain the client's property.
+   You may download, install and use Beekiri free of charge:
 
-4. Prohibited without written permission
-   Without prior written permission from 996agency, you must NOT:
-   - modify, fork, or create derivative works of the Software;
-   - redistribute, republish, or rebrand the Software or install ZIP;
-   - remove or alter copyright, license, or proprietary notices;
-   - use the Software to build a competing CMS product or white-label offering;
-   - share the Software with third parties outside your licensed engagement.
+   - on as many websites as you like;
+   - for yourself, for your company, or for your clients;
+   - for personal, non-profit and commercial projects;
+   - on your own computer, your own server, or with any hosting provider.
 
-5. Enforcement
-   Unauthorized use, modification, or redistribution may result in civil and/or
-   criminal liability under applicable intellectual property and contract law.
-   Licensor reserves all rights not expressly granted.
+   You never have to pay for Beekiri itself. 996agency will not start charging
+   for a version of the Software you have already received under this license.
 
-6. No warranty
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-   IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A
-   PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL LICENSOR BE
-   LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM USE OF THE
-   SOFTWARE.
 
-7. Contact
-   Licensing and permissions: 996agency
-   https://github.com/996agency
+2. BUILD WITH IT
 
-By using, installing, or retaining a copy of the Software, you acknowledge
-that you have read this license and agree to be bound by its terms.
+   You may freely:
+
+   a) Create themes. Write your own themes, change any theme, and use the themes
+      that ship with Beekiri as a starting point for your own.
+
+   b) Create extensions. Write your own extensions that add features to
+      Beekiri.
+
+   c) Share or sell your work. Your themes and extensions belong to you. You may
+      give them away or sell them under any terms you choose, as long as they do
+      not contain the Beekiri core (see section 4).
+
+   d) Build websites for others. Design, build, host and maintain Beekiri
+      websites for clients and charge for that work.
+
+   e) Use your content. The content you create and the websites Beekiri
+      generates are yours. Public websites do not need to show any Beekiri
+      branding.
+
+
+3. CHANGES TO THE CORE
+
+   The "core" is everything in the Software other than themes and extensions:
+   the admin, the API, the setup wizard, the installer, the updater and the
+   default extensions shipped with Beekiri.
+
+   You may change the core for websites you run or build, for example to fix a
+   problem. Those changes are at your own risk: core updates may replace them,
+   and 996agency does not support modified installations. You may not
+   distribute a changed core (see section 4).
+
+
+4. WHAT YOU MAY NOT DO
+
+   a) No rebranding. Do not remove, replace, hide or change the Beekiri name,
+      the Beekiri logo, or the copyright and license notices in the admin, the
+      sign-in screen, the setup wizard, the installer or the update screens.
+      ("White-labelling" Beekiri is not allowed.)
+
+   b) No clones. Do not publish, sell or offer the Software, or a copy or
+      changed version of it, as your own product or under another name. Do not
+      use the Software, or substantial parts of its code, to build a competing
+      content management system or website builder.
+
+   c) No redistribution of the core. Do not share or sell the core, changed or
+      unchanged, except by pointing people to the official Beekiri downloads.
+      Hosting providers may install and run unmodified official releases for
+      their customers, with all branding intact (see section 5).
+
+   d) No bypassing paid licenses. Do not remove, disable or work around the
+      license checks for paid themes or other paid items from the Beekiri Hub,
+      and do not share paid items with people who did not buy them.
+
+
+5. HOSTING PROVIDERS
+
+   Hosting companies, agencies and platforms may offer Beekiri to their
+   customers — for example as a one-click install or a managed service — using
+   unmodified official releases with all Beekiri branding and notices intact.
+   They may not present Beekiri as their own software.
+
+
+6. PAID THEMES AND ITEMS
+
+   Beekiri is free. Some themes and other items in the Beekiri Hub are paid.
+   Each paid item comes with its own license, shown when you buy it. Unless
+   that license says otherwise, a paid theme may be used on one local, one
+   staging and one production website that share the same owner email address.
+
+
+7. TRADEMARKS
+
+   "Beekiri", the Beekiri logo, the bee mark and the names of Beekiri's own
+   features are trademarks of 996agency. This license does not grant any
+   rights to use them beyond what TRADEMARKS.md allows.
+
+
+8. ENDING THIS LICENSE
+
+   If you break this license, your right to use the Software ends. If you fix
+   the problem within 30 days of being told about it, your rights are
+   restored. Sections 9 and 10 continue to apply after the license ends.
+
+
+9. NO WARRANTY
+
+   The Software is provided "as is", without warranty of any kind, express or
+   implied, including the warranties of merchantability, fitness for a
+   particular purpose and non-infringement. You use it at your own risk.
+
+
+10. LIMITATION OF LIABILITY
+
+   To the maximum extent permitted by law, 996agency is not liable for any
+   damages arising from the use of, or inability to use, the Software,
+   including loss of data, profits or business, even if advised of the
+   possibility of such damages.
+
+
+11. NEW VERSIONS OF THIS LICENSE
+
+   996agency may publish new versions of this license for future releases. A
+   release you have already received stays under the license it came with.
+
+
+Questions or permission requests (for example to rebrand Beekiri for a
+specific partnership): contact 996agency.
