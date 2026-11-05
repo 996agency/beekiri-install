@@ -88,7 +88,8 @@ function checkFolder() {
 async function fetchLatest() {
   let res;
   try {
-    res = await fetch(LATEST_URL, { headers: { 'Cache-Control': 'no-cache' } });
+    // GitHub caches raw files for a few minutes; a unique query asks for the current one.
+    res = await fetch(`${LATEST_URL}${LATEST_URL.includes('?') ? '&' : '?'}t=${Date.now()}`, { headers: { 'Cache-Control': 'no-cache' } });
   } catch (error) {
     fail(`Could not reach GitHub to find the latest Beekiri release (${error.message}). Check your internet connection.`);
   }
@@ -98,9 +99,12 @@ async function fetchLatest() {
   return latest;
 }
 
-async function download(url) {
+async function download(url, soft = false) {
   const res = await fetch(url);
-  if (!res.ok || !res.body) fail(`Download failed (${res.status}).`);
+  if (!res.ok || !res.body) {
+    if (soft) throw new Error(`HTTP ${res.status}`);
+    fail(`Download failed (${res.status}).`);
+  }
   const total = Number(res.headers.get('content-length')) || 0;
   const chunks = [];
   let got = 0;
@@ -183,7 +187,16 @@ async function main() {
 
   const latest = await fetchLatest();
   say(`  Latest release: ${c.bold(latest.name || latest.tag || latest.version)}`);
-  const zip = await download(latest.downloadUrl);
+  // The release asset is versioned (never stale); the raw ZIP link is the fallback.
+  const repo = (latest.releaseUrl || '').match(/github\.com\/([^/]+\/[^/]+)\/releases/)?.[1];
+  const assetUrl = repo && latest.tag ? `https://github.com/${repo}/releases/download/${latest.tag}/beekiri-install.zip` : '';
+  let zip;
+  try {
+    zip = assetUrl ? await download(assetUrl, true) : null;
+  } catch {
+    zip = null;
+  }
+  zip ??= await download(latest.downloadUrl);
   mkdirSync(target, { recursive: true });
   const files = unzip(zip, target);
   say(`  ${c.green('✔')} Downloaded into ${c.bold(folderArg)} ${c.dim(`(${files} files)`)}`);
