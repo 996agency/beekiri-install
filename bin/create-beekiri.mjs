@@ -208,7 +208,6 @@ async function main() {
     say(`    macOS:   ${c.bold('brew install postgresql@16 && brew services start postgresql@16')}  ${c.dim('(or Postgres.app)')}`);
     say(`    Ubuntu:  ${c.bold('sudo apt install postgresql')}`);
     say(`    Windows: ${c.bold('https://www.postgresql.org/download/windows/')}`);
-    say(`    Docker:  ${c.bold('docker run -d --name beekiri-db -e POSTGRES_PASSWORD=beekiri -p 5432:5432 postgres:16')}`);
     say(`    ${c.dim('A hosted database (Neon, Supabase, your host…) works too. The setup wizard asks for its details.')}`);
   }
   if (!php) say(`\n  ${c.dim('PHP 8+ was not found. That is fine unless you use PHP theme layouts or the Shopping storefront.')}`);
