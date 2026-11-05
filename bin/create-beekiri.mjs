@@ -86,9 +86,22 @@ function checkFolder() {
 /* ── Download + unzip ────────────────────────────────────────────────── */
 
 async function fetchLatest() {
+  // GitHub caches raw files for a few minutes after a release; its API is always current.
+  if (!process.env.BEEKIRI_LATEST_URL) {
+    try {
+      const api = await fetch('https://api.github.com/repos/996agency/beekiri-install/contents/latest.json', {
+        headers: { Accept: 'application/vnd.github.raw', 'User-Agent': 'create-beekiri' },
+      });
+      if (api.ok) {
+        const latest = await api.json();
+        if (latest?.downloadUrl) return latest;
+      }
+    } catch {
+      // Fall back to the raw file below.
+    }
+  }
   let res;
   try {
-    // GitHub caches raw files for a few minutes; a unique query asks for the current one.
     res = await fetch(`${LATEST_URL}${LATEST_URL.includes('?') ? '&' : '?'}t=${Date.now()}`, { headers: { 'Cache-Control': 'no-cache' } });
   } catch (error) {
     fail(`Could not reach GitHub to find the latest Beekiri release (${error.message}). Check your internet connection.`);
