@@ -1,8 +1,8 @@
 {
-  "version": "1.2.2",
-  "tag": "v1.2.2",
-  "name": "Beekiri Core v1.2.2",
-  "releaseUrl": "https://github.com/996agency/beekiri-install/releases/tag/v1.2.2",
+  "version": "1.2.3",
+  "tag": "v1.2.3",
+  "name": "Beekiri Core v1.2.3",
+  "releaseUrl": "https://github.com/996agency/beekiri-install/releases/tag/v1.2.3",
   "downloadUrl": "https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip",
   "publishedAt": null
 }
