@@ -47,7 +47,8 @@ ${c.bold('Options')}
   -h, --help     Show this help
 
 ${c.bold('Needs')}
-  Node.js ${MIN_NODE}+, and a PostgreSQL 14+ database (local or hosted).
+  Node.js ${MIN_NODE}+. No database? The setup wizard can install one for you
+  ("Set it up for me"), or connect your own PostgreSQL 14+ (local or hosted).
   PHP 8+ is optional (PHP theme layouts and the Shopping storefront).
 
 Beekiri is free to use. See LICENSE and TRADEMARKS.md in the new folder.
@@ -260,11 +261,8 @@ async function main() {
   const pg = has('psql') || has('pg_isready');
   const php = has('php', ['-v']);
   if (!pg) {
-    say(`\n  ${c.yellow('!')} PostgreSQL was not found on this computer. Beekiri needs a PostgreSQL 14+ database.`);
-    say(`    macOS:   ${c.bold('brew install postgresql@16 && brew services start postgresql@16')}  ${c.dim('(or Postgres.app)')}`);
-    say(`    Ubuntu:  ${c.bold('sudo apt install postgresql')}`);
-    say(`    Windows: ${c.bold('https://www.postgresql.org/download/windows/')}`);
-    say(`    ${c.dim('A hosted database (Neon, Supabase, your host…) works too. The setup wizard asks for its details.')}`);
+    say(`\n  ${c.dim('No PostgreSQL on this computer: that is fine. In the setup wizard choose')} ${c.bold('Set it up for me')}`);
+    say(`  ${c.dim('and Beekiri installs its own database inside this site folder.')}`);
   }
   if (!php) say(`\n  ${c.dim('PHP 8+ was not found. That is fine unless you use PHP theme layouts or the Shopping storefront.')}`);
 
@@ -282,7 +280,7 @@ async function main() {
     return;
   }
   say(`\n  Starting Beekiri. The first start builds the app, then prints a ${c.bold('setup link')}.`);
-  say(`  Open it in your browser, enter the database details and create your site.\n`);
+  say(`  Open it in your browser, let Beekiri set up the database (or enter your own), and create your site.\n`);
   say(c.dim(`  Later: cd ${folderArg} && npm start   ·   Stop: Ctrl+C\n`));
   process.exit(await run('npm', ['start'], target));
 }
