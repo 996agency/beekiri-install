@@ -9,12 +9,17 @@
  * No dependencies: Node 20+ only (fetch, zlib). Free to use — see LICENSE (Beekiri License).
  */
 import { spawn, spawnSync } from 'node:child_process';
+import { createHash, createPublicKey, verify } from 'node:crypto';
 import { chmodSync, existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, isAbsolute, join, normalize, resolve, sep } from 'node:path';
 import { inflateRawSync } from 'node:zlib';
 
 const LATEST_URL = process.env.BEEKIRI_LATEST_URL || 'https://raw.githubusercontent.com/996agency/beekiri-install/main/latest.json';
 const MIN_NODE = 20;
+
+/** 996agency's release signing keys: only a package signed by one of them is installed. */
+const RELEASE_KEYS = ['dL0loV7jwSJ1bKW62LZfLyO6kPiaxR55565WvqceXT0='];
+const SPKI_PREFIX = Buffer.from('302a300506032b6570032100', 'hex');
 
 const c = {
   bold: (s) => `\x1b[1m${s}\x1b[22m`,
@@ -130,6 +135,34 @@ async function download(url, soft = false) {
   return Buffer.concat(chunks);
 }
 
+/** Checks the package against its .sig (version, sha256, Ed25519 signature) before anything is unpacked. */
+async function verifyPackage(zip, zipUrl, version) {
+  let sig;
+  try {
+    const res = await fetch(`${zipUrl.split('?')[0]}.sig`);
+    sig = res.ok ? await res.json() : null;
+  } catch {
+    sig = null;
+  }
+  if (!sig) fail('The downloaded package has no 996agency signature, so it was not installed.');
+  const sha256 = createHash('sha256').update(zip).digest('hex');
+  const signature = Buffer.from(String(sig.signature || ''), 'base64');
+  const message = Buffer.from(`beekiri-core:v1\n${sig.version}\n${sha256}`, 'utf8');
+  const signed =
+    signature.length === 64 &&
+    RELEASE_KEYS.some((b64) => {
+      try {
+        const key = createPublicKey({ key: Buffer.concat([SPKI_PREFIX, Buffer.from(b64, 'base64')]), format: 'der', type: 'spki' });
+        return verify(null, message, key, signature);
+      } catch {
+        return false;
+      }
+    });
+  if (!signed || sig.sha256 !== sha256 || (version && sig.version !== version)) {
+    fail('The downloaded package is not signed by 996agency (or was altered), so it was not installed.');
+  }
+}
+
 /** Minimal ZIP reader (stored + deflate, no ZIP64), enough for the Beekiri release package. */
 function unzip(buf, dest) {
   let eocd = -1;
@@ -201,15 +234,25 @@ async function main() {
   const latest = await fetchLatest();
   say(`  Latest release: ${c.bold(latest.name || latest.tag || latest.version)}`);
   // The release asset is versioned (never stale); the raw ZIP link is the fallback.
-  const repo = (latest.releaseUrl || '').match(/github\.com\/([^/]+\/[^/]+)\/releases/)?.[1];
+  const repo = (latest.releaseUrl || '').match(/^https:\/\/github\.com\/(996agency\/[^/]+)\/releases\//)?.[1];
   const assetUrl = repo && latest.tag ? `https://github.com/${repo}/releases/download/${latest.tag}/beekiri-install.zip` : '';
+  // Only GitHub over https: latest.json can't send the download anywhere else.
+  if (!/^https:\/\/github\.com\/996agency\//.test(String(latest.downloadUrl)) && !process.env.BEEKIRI_LATEST_URL) {
+    fail('The release information points outside 996agency on GitHub. Not installing.');
+  }
   let zip;
+  let zipUrl = assetUrl;
   try {
     zip = assetUrl ? await download(assetUrl, true) : null;
   } catch {
     zip = null;
   }
-  zip ??= await download(latest.downloadUrl);
+  if (!zip) {
+    zipUrl = latest.downloadUrl;
+    zip = await download(latest.downloadUrl);
+  }
+  await verifyPackage(zip, zipUrl, latest.version);
+  say(`  ${c.green('✔')} Signature verified`);
   mkdirSync(target, { recursive: true });
   const files = unzip(zip, target);
   say(`  ${c.green('✔')} Downloaded into ${c.bold(folderArg)} ${c.dim(`(${files} files)`)}`);
