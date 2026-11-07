@@ -271,7 +271,8 @@ async function main() {
     return;
   }
   say(`\n  Installing dependencies ${c.dim('(npm install, takes a minute or two)')}…\n`);
-  const code = await run('npm', ['install'], target);
+  // Build tools are dev dependencies: keep them even where NODE_ENV=production is set.
+  const code = await run('npm', ['install', '--include=dev'], target);
   if (code !== 0) fail(`npm install failed. Fix the error above, then run: cd ${folderArg} && npm install && npm start`);
   say(`\n  ${c.green('✔')} Installed.`);
 
