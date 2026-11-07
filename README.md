@@ -10,13 +10,13 @@ With Node.js 20+ and PostgreSQL 14+ installed:
 npx github:996agency/beekiri-install my-site
 ```
 
-It downloads Beekiri v1.2.3 into `my-site`, installs it and starts it. Open the setup link it prints, enter your database details and create your site.
+It downloads Beekiri v1.3.0 into `my-site`, installs it and starts it. Open the setup link it prints, enter your database details and create your site.
 
 Options: `--no-start`, `--no-install`, `--help`.
 
 ## Or download the ZIP
 
-[beekiri-install.zip (v1.2.3)](https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip): unzip, then `npm install` and `npm start`, and follow `START_HERE.txt`.
+[beekiri-install.zip (v1.3.0)](https://github.com/996agency/beekiri-install/raw/main/beekiri-install.zip): unzip, then `npm install` and `npm start`, and follow `START_HERE.txt`.
 
 All releases: https://github.com/996agency/beekiri-install/releases
 
