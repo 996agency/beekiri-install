@@ -1,5 +1,5 @@
 {
-  "version": "1.3.4",
-  "sha256": "3251993266eda5f53df23e7b244a6272be9ba9429fe27ff08a63893a068f6323",
-  "signature": "NF6+BdR+SbK3OZgMFJ07XwqRGxKV7V8ksg6nHc5+u1W10rOHDRKDGxAWw7mW4681F01U7di5ilSy8Yv88ri5DA=="
+  "version": "1.4.2",
+  "sha256": "1c96b0e9fb40612a9f06ee7bf685b7f09ca179848bbc2cb2e2d0c748cba52ecb",
+  "signature": "3jaNL6pNJdkYNIQaI22WtaJrqlXoewNtSs84j5zLaWPp7OGwaHvRy0ArCrqfB1L7IFbCcDgV4uPzt3lRqML9Cw=="
 }
